@@ -5,10 +5,65 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test
+    void testRemoveDupes_IntList() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(2);
+
+        ArrayList<Integer> result = ArrayFilter.removeDupes(list);
+
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+     void testRemoveDupes_StringList(){
+         ArrayList<String> list = new ArrayList<>();
+         list.add("a");
+         list.add("b");
+         list.add("c");
+         list.add("b");
+
+         ArrayList<String> result = ArrayFilter.removeDupes(list);
+
+         ArrayList<String> expected = new ArrayList<>();
+         expected.add("a");
+         expected.add("b");
+         expected.add("c");
+
+         assertEquals(expected, result);
+     }
+
+    @Test
+    void testRemoveDupes_AnotherStringList() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Hello");
+        list.add("World");
+        list.add("Hello");
+
+        ArrayList<String> result = ArrayFilter.removeDupes(list);
+
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("Hello");
+        expected.add("World");
+
+        assertEquals(expected, result);
+    } 
+
+    @Test
+    void testRemoveDupes_EmptyList(){
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> result = ArrayFilter.removeDupes(list);
+        assertTrue(result.isEmpty());
     }
 }
