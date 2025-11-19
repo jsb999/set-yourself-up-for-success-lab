@@ -3,12 +3,36 @@
  */
 package org.example;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.ArrayList;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(2);
+
+        ArrayList<Integer> filteredList = ArrayFilter.removeDupes(list);
+        System.out.println(filteredList);
+
+
+        ArrayList<String> list2 = new ArrayList<>();
+        list2.add("a");
+        list2.add("b");
+        list2.add("c");
+        list2.add("b");
+
+        ArrayList<String> filteredList2 = ArrayFilter.removeDupes(list2);
+        System.out.println(filteredList2);
+
+        ArrayList<String> list3 = new ArrayList<>();
+        list3.add("Hello");
+        list3.add("World");
+        list3.add("Hello");
+
+        ArrayList<String> filteredList3 = ArrayFilter.removeDupes(list3);
+        System.out.println(filteredList3);
+        
     }
 }
